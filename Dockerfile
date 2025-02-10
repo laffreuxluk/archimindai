@@ -14,5 +14,5 @@ EXPOSE 8000
 # Définir une valeur par défaut pour PORT (Railway peut la redéfinir)
 ENV PORT 8000
 
-# Utiliser le script de démarrage pour lancer l'application
-CMD ["./start.sh"]
+# Utiliser start.sh comme script de démarrage
+CMD ["/bin/sh", "start.sh"]
