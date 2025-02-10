@@ -6,13 +6,13 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
-# Copier l'ensemble du code (y compris start.sh)
+# Copier tout le code (incluant launch.py)
 COPY . .
 
 EXPOSE 8000
 
-# Définir une valeur par défaut pour PORT (Railway peut la redéfinir)
+# Définir PORT par défaut à 8000 (Railway pourra le redéfinir s'il le souhaite)
 ENV PORT 8000
 
-# Utiliser start.sh comme script de démarrage
-CMD ["/bin/sh", "start.sh"]
+# Utiliser la forme shell : lancer l'application via launch.py
+CMD python launch.py
