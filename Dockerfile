@@ -6,13 +6,13 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
-# Copier l'ensemble du code
+# Copier l'ensemble du code (y compris start.sh)
 COPY . .
 
 EXPOSE 8000
 
-# Définir la variable d'environnement PORT par défaut
+# Définir une valeur par défaut pour PORT (Railway peut la redéfinir)
 ENV PORT 8000
 
-# Utiliser sh -c pour que la substitution de la variable PORT soit effectuée lors de l'exécution dans le conteneur.
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT}"]
+# Utiliser le script de démarrage pour lancer l'application
+CMD ["./start.sh"]
