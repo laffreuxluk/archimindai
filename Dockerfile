@@ -11,5 +11,5 @@ COPY . .
 
 EXPOSE 8000
 
-# Lancer l'application sur le port fixe 8000
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+# Utiliser ENTRYPOINT pour lancer l'application sur le port fixe 8000
+ENTRYPOINT ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
